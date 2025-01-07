@@ -228,6 +228,8 @@ html {
     }
 
     .age_gender_labels {
+        display: grid;
+        grid-template-columns: 1fr;
         font-size: 90%; 
     }
 
