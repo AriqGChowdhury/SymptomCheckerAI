@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Gugi&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <div class="space">
+        <div class="label_top">
+            Symptom Checker AI
+        </div>       
+    </div>
+    <div class="symptom-checker-prompt">
+        <div class="prompt">
+            <div class="prompt_texts">
+                <h2>Not feeling too well?</h2>
+                <h3>Let's see what symptoms you're experiencing and we'll help you out!</h3>
+                <p>Lets start with your age and gender</p>
+            </div>
+            
+            <form action="/">
+                <div class="age_gender_labels">
+                    <label for="age">Age:</label>
+                    <p>Gender:</p>
+                </div>
+                <div class="age_gender_ans">
+                    <input type="text" id="age" name="age" required>
+                    <label id="male_label" for="male">Male</label>
+                    <input type="radio" id="male" name="gender" value="Male" required>
+                    <label id='female_label' for="female">Female</label>
+                    <input type="radio" id="female" name="gender" value="Female">
+                </div>
+                <div class="submit_button1">
+                    <button id='nextButton' type="button">Next</button>
+                </div>
+                    
+              </form>    
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            let user_input = {};
+            $('#nextButton').on('click', function () {
+                let age_val = $("#age").val();
+                let gender_val = $("input[name='gender']:checked").val();
+                if (age_val && gender_val) {
+                    user_input['Age'] = age_val;
+                    user_input['Gender'] = gender_val;
+                    $(".prompt").html(`
+                        <div class="prompt_texts">
+                            <h2>Awesome!</h2>
+                            <h3>Next, we'll take a look at your blood pressure and cholesterol </h3>
+                        </div>
+                    
+                        <form action="/">
+                            <div class="bp_chol">
+                                <div class="bp_labels">
+                                    <label for="bloodPressure">How's your blood pressure at the moment?</label>
+                                    <select id='bp' name="bloodPressure" required>
+                                        <option value="lowBp">Low</option>
+                                        <option value="normalBp">Normal</option>
+                                        <option value="highBp">High</option>
+                                    </select>
+                                </div>
+                                <div class="chol_levels">
+                                    <label for="chol">How's your cholesterol?</label><br>
+                                    <select id='cholesterol' name="chol" required>
+                                        <option value="lowCh">Low</option>
+                                        <option value="normalCh">Normal</option>
+                                        <option value="highCh">High</option>
+                                    </select>
+                                </div>
+                                
+                            </div>
+                            <div class="submit_button1">
+                                <button id='nextButton2' type="button">Next</button>
+                            </div>
+                        
+                            
+                        </form>
+                    `)
+
+                    
+                }
+                else {
+                    alert("Please fill in both age and gender");
+                }
+            });
+
+            $(document).on('click', '#nextButton2', function () {
+                let bp_val = $('#bp').val();
+                let chol_val = $('#cholesterol').val();
+
+                if (bp_val && chol_val) {
+                    user_input['Blood Pressure'] = bp_val;
+                    user_input['Cholesterol Level'] = chol_val;
+                    $(".prompt").html (`
+                        <h2>Lastly</h2>
+                            <h3>Let's fill these out </h3>
+                        </div>
+                    
+                        <form action="/">
+                            <div class="fever_cough">
+                                <div class="fever">
+                                    <p>Fever?</p>
+                                    <label for="fever_yes">Yes</label>
+                                    <input type="radio" id="fever_yes" name="fever_yn" value="Yes" required>
+                                    <label for="fever_no">No</label>
+                                    <input type="radio" id="fever_no" name="fever_yn" value="No">
+                                </div>
+                                <div class="cough">
+                                    <p>Cough?</p>
+                                    <label for="cough_yes">Yes</label>
+                                    <input type="radio" id="cough_yes" name="cough_yn" value="Yes" required>
+                                    <label for="cough_no">No</label>
+                                    <input type="radio" id="cough_no" name="cough_yn" value="No">
+                                </div>
+                                
+                            </div>
+                            <div class="fat_breathe">
+                                <div class="fat">
+                                    <p>Fatigue?</p>
+                                    <label for="fat_yes">Yes</label>
+                                    <input type="radio" id="fat_yes" name="fat_yn" value="Yes" required>
+                                    <label for="fat_no">No</label>
+                                    <input type="radio" id="fat_no" name="fat_yn" value="No">
+                                </div>
+                                <div class="breathe">
+                                    <p>Difficulty Breathing?</p>
+                                    <label for="breathe_yes">Yes</label>
+                                    <input type="radio" id="breathe_yes" name="breathe_yn" value="Yes" required>
+                                    <label for="breathe_no">No</label>
+                                    <input type="radio" id="breathe_no" name="breathe_yn" value="No">
+                                </div>
+                            </div>
+                            <div class="submit_button1">
+                                <button id='nextButton3' type="button">Results!</button>
+                            </div>
+                        </form> `)
+                    
+                }
+
+            })
+
+            $(document).on('click', '#nextButton3', function() {
+                let fever_val = $("input[name='fever_yn']:checked").val();
+                let fatigue_val = $("input[name='fat_yn']:checked").val();
+                let breathe_val = $("input[name='breathe_yn']:checked").val();
+                let cough_val = $("input[name='cough_yn']:checked").val();
+                
+                if (fever_val && fatigue_val && breathe_val && cough_val) {
+                    user_input['Fever'] = fever_val;
+                    user_input['Fatigue'] = fatigue_val;
+                    user_input['Difficulty Breathing'] = breathe_val;
+                    user_input['Cough'] = cough_val;
+                    user_input['Outcome Variable'] = 'Positive';
+                    $.ajax({
+                        url:'/submit',
+                        method: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify(user_input),
+                        success: function(response) {
+                            if (response.message == "Eczema" || response.message == "Psoriasis") {
+                                response.message = "Common Cold";
+                            }
+                            $(".prompt").html(`
+                            <h2 id="sickness">Evaluations...</h2>
+                            <h3 id="sickness">It looks like you have: ${response.message}</h3>
+                            <h3 id="sickness">Suggestion: ${response.suggestion}</h3>
+                            <img id="sickPerson" src='../static/cough.jpg' alt=''>
+                            `);
+                        },
+                        error: function() {
+                            alert("Error sending data");
+                        }
+                    });
+                }
+                else {
+                    alert("Select yes or no for all prompts!")
+                }
+            })
+        });
+    </script>
+    
+
+    
+    {% endblock %}
+</body>
+</html>

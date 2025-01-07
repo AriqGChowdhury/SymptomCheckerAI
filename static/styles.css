@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    height: 100%;
+}
+html {
+    height: 100%;
+    
+}
+.symptom-checker-prompt {
+    background-image: url('./hands-with-health-.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 93.5%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    
+    
+}
+
+.prompt {
+    background-color: white;
+    height: 60%;
+    width: 50%;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 12vh;
+}
+
+.space {
+    height: 4rem;
+    font-family: "Gugi", serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #B1F0F7;
+    color: black;
+
+}
+
+.label_top {
+    text-align: center;
+    line-height: 125%;
+    font-size: 300%;
+}
+
+.age_gender_labels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 125%;
+    
+    font-family: "Pacifico", serif;
+    font-weight: 400;
+    font-style: normal;
+      
+      
+}
+
+.age_gender_ans {
+    display: block;
+    font-family: "Pacifico", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.age_gender_labels label {
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+#male_label {
+    margin-left: 35%;
+    
+}
+#female_label {
+    position: absolute;
+    margin-left: 2%;
+}
+
+.submit_button1 {
+    margin-top: 15%;
+    border-radius: 12%;
+    
+}
+
+.submit_button1:hover {
+    cursor: pointer;
+}
+
+.submit_button1 button {
+    line-height: 200%;
+    width: 30%;
+}
+
+#age {
+    width: 8%;
+}
+
+.prompt_texts {
+    margin-top: 10%;
+    font-family: "Figtree", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.bp_chol {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    font-family: "Pacifico", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+    margin-left: 5%;
+    
+}
+
+.fever_cough {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    font-family: "Pacifico", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+}
+
+.fat_breathe {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    font-family: "Pacifico", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+}
+
+#sickPerson {
+    height: 50%;
+    width: 45%;
+}
+
+#sickness {
+    font-family: "Merriweather Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal; 
+}
