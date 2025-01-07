@@ -10,7 +10,8 @@ app = Flask(__name__)
 secret_key = os.urandom(24)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://project.db'
 app.config['SECRET_KEY'] = secret_key
-app.config['SERVER_NAME'] = '127.0.0.1:5000'
+#app.config['SERVER_NAME'] = '127.0.0.1:5000'
+port = int(os.environ.get("PORT", 5000))
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -41,7 +42,7 @@ def submit():
                     })
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=port)
 
 
     
