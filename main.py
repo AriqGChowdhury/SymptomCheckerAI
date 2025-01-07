@@ -1,12 +1,7 @@
 import requests
 import os
 from flask import Flask, render_template, url_for, request, redirect, session, flash
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
-from sqlalchemy import Integer, String
 import bcrypt
-from sqlalchemy.dialects import mysql
-from geopy.geocoders import Nominatim
 import base64
 import jsonify
 from flask import jsonify
