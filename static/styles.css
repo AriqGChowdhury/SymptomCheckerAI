@@ -7,7 +7,7 @@ html {
     
 }
 .symptom-checker-prompt {
-    background-image: url('./hands-with-health-.jpg');
+    background-image: url('/static/hands-with-health-.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     height: 93.5%;
