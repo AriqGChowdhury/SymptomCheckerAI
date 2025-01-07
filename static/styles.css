@@ -143,3 +143,96 @@ html {
     font-weight: 500;
     font-style: normal; 
 }
+
+@media (max-width: 768px) {
+    
+    .prompt {
+        width: 80%;  
+        height: auto; 
+        border-radius: 10%; 
+    }
+
+    
+    .space {
+        height: 3rem;  
+    }
+
+    
+    .label_top {
+        font-size: 200%; 
+    }
+
+    
+    .age_gender_labels {
+        grid-template-columns: 1fr; 
+        font-size: 100%; 
+    }
+
+    
+    .submit_button1 button {
+        width: 60%; 
+    }
+
+    
+    #sickPerson {
+        width: 80%; 
+        height: auto;
+    }
+
+    
+    .prompt_texts {
+        font-size: 1.2rem; 
+    }
+
+    
+    .bp_chol,
+    .fever_cough,
+    .fat_breathe {
+        grid-template-columns: 1fr; 
+        font-size: 1.1rem; 
+        margin-left: 0; 
+    }
+
+    
+    #sickness {
+        font-size: 1rem;
+    }
+
+    
+    .symptom-checker-prompt {
+        background-size: cover; 
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .prompt {
+        width: 90%; 
+    }
+
+    .submit_button1 button {
+        width: 80%; 
+    }
+
+    .prompt_texts {
+        font-size: 1rem; 
+    }
+
+    .space {
+        height: 2.5rem; 
+    }
+
+    
+    .label_top {
+        font-size: 150%;
+    }
+
+    .age_gender_labels {
+        font-size: 90%; 
+    }
+
+    
+    #age {
+        width: 20%; 
+    }
+}
