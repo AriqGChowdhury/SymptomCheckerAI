@@ -1,12 +1,8 @@
-import requests
 import os
-from flask import Flask, render_template, url_for, request, redirect, session, flash
-import bcrypt
+from flask import Flask, render_template, url_for, request
 import base64
 import jsonify
 from flask import jsonify
-from datetime import datetime, timedelta
-import time
 from model import Model
 
 
